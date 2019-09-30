@@ -1,8 +1,15 @@
 import hotels from '../store/data.json';
 
 export default class HotelService {
-  static getAll() {
-    return hotels;
+
+  static getHotels(query: string) {
+    console.log('Estos es query', query)
+    if (query) {
+      return hotels.filter(h => { if (query == h.name) return h }
+      );
+    } else {
+      return hotels;
+    }
   }
 
   static create(request: object) {
@@ -22,5 +29,15 @@ export default class HotelService {
     return {
       msg: `Hotel ${id}  updated success`
     };
+  }
+
+  static normalizeRequest(request: string) {
+    console.log('esto es normal', request);
+
+    const filters: object = {
+      name: request.name || null,
+      stars: request.stars || null
+    }
+    return filters;
   }
 }

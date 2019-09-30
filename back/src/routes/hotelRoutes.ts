@@ -11,7 +11,7 @@ class hotelsRoutes {
 
   config(): void {
     this.router.get('/', hotelsController.getAllHotels);
-    this.router.get('/:id', hotelsController.getHotelsByFilters);
+    this.router.get('/:filters', hotelsController.getHotelsByFilters);
     this.router.post('/', hotelsController.createHotel);
     this.router.delete('/:id', hotelsController.deleteHotel);
     this.router.put('/:id', hotelsController.updateHotel);

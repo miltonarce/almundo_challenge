@@ -6,7 +6,7 @@ class HotelsController {
 
   public getAllHotels(req: Request, res: Response, next: NextFunction) {
     try {
-      res.json(hotelService.getAll());
+      res.json(hotelService.getHotels(req.params.filters));
     } catch (err) {
       next(err);
     }
@@ -14,7 +14,8 @@ class HotelsController {
 
   public getHotelsByFilters(req: Request, res: Response, next: NextFunction) {
     try {
-      res.json(hotelService.getAll());
+      const filters: string = hotelService.normalizeRequest(req.query);
+      res.json(hotelService.getHotels(filters));
     } catch (err) {
       next(err);
     }
