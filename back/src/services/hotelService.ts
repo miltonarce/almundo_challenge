@@ -1,18 +1,19 @@
 import hotels from '../store/data.json';
+import { filter } from 'compression';
 
 export default class HotelService {
 
-  static getHotels(query: string) {
-    console.log('Estos es query', query)
-    if (query) {
-      return hotels.filter(h => { if (query == h.name) return h }
-      );
-    } else {
-      return hotels;
-    }
+  static getHotels(filters: Object = {}) {
+
+    const stars: any = filters.stars ? filters.stars.map(star => parseInt(star)) : null;
+    let filtered: any = hotels;
+
+    if (filters.name) filtered = filtered.filter(hotel => hotel.name.includes(filters.name));
+    if (stars) filtered = filtered.filter(hotel => stars.includes(hotel.stars));
+    return filtered;
   }
 
-  static create(request: object) {
+  static create(request: Object) {
     return {
       id: Math.random(),
       date: new Date()
@@ -29,15 +30,5 @@ export default class HotelService {
     return {
       msg: `Hotel ${id}  updated success`
     };
-  }
-
-  static normalizeRequest(request: string) {
-    console.log('esto es normal', request);
-
-    const filters: object = {
-      name: request.name || null,
-      stars: request.stars || null
-    }
-    return filters;
   }
 }

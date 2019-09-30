@@ -3,19 +3,9 @@ import { Request, Response, NextFunction } from 'express';
 import hotelService from '../services/hotelService';
 
 class HotelsController {
-
-  public getAllHotels(req: Request, res: Response, next: NextFunction) {
+  public getHotels(req: Request, res: Response, next: NextFunction) {
     try {
-      res.json(hotelService.getHotels(req.params.filters));
-    } catch (err) {
-      next(err);
-    }
-  }
-
-  public getHotelsByFilters(req: Request, res: Response, next: NextFunction) {
-    try {
-      const filters: string = hotelService.normalizeRequest(req.query);
-      res.json(hotelService.getHotels(filters));
+      res.json(hotelService.getHotels(req.query));
     } catch (err) {
       next(err);
     }
