@@ -1,177 +1,199 @@
 {
-  "swagger" : "2.0",
-  "info" : {
-    "description" : "Api rest to almundo challenge",
-    "version" : "1.0.0",
-    "title" : "API almundo",
-    "contact" : {
-      "email" : "miltonhernan.arce@gmail.com"
+  "swagger": "2.0",
+  "info": {
+    "description": "Api rest to almundo challenge",
+    "version": "1.0.0",
+    "title": "API almundo",
+    "contact": {
+      "email": "miltonhernan.arce@gmail.com"
     },
-    "license" : {
-      "name" : "Apache 2.0",
-      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host" : "virtserver.swaggerhub.com",
-  "basePath" : "/miltonarce/almundo_api/1.0.0",
-  "tags" : [ {
-    "name" : "Hotels",
-    "description" : "Hotels services"
-  } ],
-  "schemes" : [ "https" ],
-  "produces" : [ "applitaction/json" ],
-  "paths" : {
-    "/hotels" : {
-      "get" : {
-        "tags" : [ "Hotels" ],
-        "summary" : "Get all hotels",
-        "description" : "Get all available hotels",
-        "operationId" : "get",
-        "parameters" : [ {
-          "name" : "name",
-          "in" : "query",
-          "description" : "Hotel Name",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "stars",
-          "in" : "query",
-          "description" : "Hotel stars",
-          "required" : false,
-          "type" : "array",
-          "items" : {
-            "type" : "number"
+  "host": "virtserver.swaggerhub.com",
+  "basePath": "/miltonarce/almundo_api/1.0.0",
+  "tags": [
+    {
+      "name": "Hotels",
+      "description": "Hotels services"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "applitaction/json"
+  ],
+  "paths": {
+    "/hotels": {
+      "get": {
+        "tags": [
+          "Hotels"
+        ],
+        "summary": "Get all hotels",
+        "description": "Get all available hotels",
+        "operationId": "get",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Hotel Name",
+            "required": false,
+            "type": "string"
           },
-          "collectionFormat" : "multi"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Operation Success",
-            "schema" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/definitions/hotel"
+          {
+            "name": "stars",
+            "in": "query",
+            "description": "Hotel stars",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/hotel"
               }
             }
           },
-          "500" : {
-            "description" : "Internal server error"
+          "500": {
+            "description": "Internal server error"
           }
         },
-        "x-swagger-router-controller" : "HotelsController"
+        "x-swagger-router-controller": "HotelsController"
       },
-      "post" : {
-        "tags" : [ "Hotels" ],
-        "summary" : "Create new hotel",
-        "description" : "Create and save new hotel",
-        "operationId" : "post",
-        "consumes" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "request",
-          "description" : "save hotel",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/hotel"
+      "post": {
+        "tags": [
+          "Hotels"
+        ],
+        "summary": "Create new hotel",
+        "description": "Create and save new hotel",
+        "operationId": "post",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "save hotel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/hotel"
+            }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Operation Success",
-            "schema" : {
-              "type" : "object"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation Success",
+            "schema": {
+              "type": "object"
             }
           },
-          "500" : {
-            "description" : "Internal server error"
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
     },
-    "/hotels/{id}" : {
-      "put" : {
-        "summary" : "Update hotel information",
-        "description" : "To update hotel information by id",
-        "operationId" : "update",
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "description" : "Hotel id to update",
-          "required" : true,
-          "type" : "integer",
-          "minimum" : 1,
-          "format" : "int64"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "Request with data to update",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/hotel"
+    "/hotels/{id}": {
+      "put": {
+        "summary": "Update hotel information",
+        "description": "To update hotel information by id",
+        "operationId": "update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Hotel id to update",
+            "required": true,
+            "type": "integer",
+            "minimum": 1,
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request with data to update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/hotel"
+            }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Operation Succes",
-            "schema" : {
-              "type" : "object"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation Succes",
+            "schema": {
+              "type": "object"
             }
           },
-          "500" : {
-            "description" : "Internal server error"
+          "500": {
+            "description": "Internal server error"
           }
         }
       },
-      "delete" : {
-        "summary" : "Delete a hotel",
-        "description" : "Delete hotel by id",
-        "operationId" : "delete",
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "description" : "Hotel id to delete",
-          "required" : true,
-          "type" : "integer",
-          "minimum" : 1,
-          "format" : "int64"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Operation Succes",
-            "schema" : {
-              "type" : "object"
+      "delete": {
+        "summary": "Delete a hotel",
+        "description": "Delete hotel by id",
+        "operationId": "delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Hotel id to delete",
+            "required": true,
+            "type": "integer",
+            "minimum": 1,
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation Succes",
+            "schema": {
+              "type": "object"
             }
           },
-          "500" : {
-            "description" : "Internal server error"
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
     }
   },
-  "definitions" : {
-    "hotel" : {
-      "type" : "object",
-      "properties" : {
-        "id" : {
-          "type" : "string"
+  "definitions": {
+    "hotel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
         },
-        "name" : {
-          "type" : "string"
+        "name": {
+          "type": "string"
         },
-        "stars" : {
-          "type" : "number"
+        "stars": {
+          "type": "number"
         },
-        "price" : {
-          "type" : "number"
+        "price": {
+          "type": "number"
         },
-        "image" : {
-          "type" : "string"
+        "image": {
+          "type": "string"
         },
-        "amenities" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
+        "amenities": {
+          "type": "array",
+          "items": {
+            "type": "string"
           }
         }
       }
