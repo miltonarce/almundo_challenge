@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+import { hotelsController } from '../controllers/hotelsController';
+
 class hotelsRoutes {
   public router: Router = Router();
 
@@ -8,7 +10,7 @@ class hotelsRoutes {
   }
 
   config(): void {
-    this.router.get('/', (req, res) => res.send('hoteles'));
+    this.router.get('/', hotelsController.getAllHotels);
   }
 }
 
