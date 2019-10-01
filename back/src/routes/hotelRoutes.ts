@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { hotelsController } from '../controllers/hotelsController';
+import { hotelsController } from '@controllers/hotelsController';
 
 class hotelsRoutes {
   public router: Router = Router();

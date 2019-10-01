@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import hotelRoutes from './hotelRoutes';
+import hotelRoutes from '@routes/hotelRoutes';
 
 class indexRoutes {
   public router: Router = Router();

@@ -1,15 +1,15 @@
-import hotels from '../store/data.json';
-import { filter } from 'compression';
+import hotels from '@store/data.json';
+import { Filters } from '@shared/interfaces/hotel';
 
 export default class HotelService {
 
-  static getHotels(filters: Object = {}) {
+  static getHotels(filters: Filters) {
 
-    const stars: any = filters.stars ? filters.stars.map(star => parseInt(star)) : null;
-    let filtered: any = hotels;
+    const stars = filters.stars ? filters.stars.map(star => parseInt(star)) : null;
+    let filtered = hotels;
 
     if (filters.name) filtered = filtered.filter(hotel => hotel.name.includes(filters.name));
-    if (stars) filtered = filtered.filter(hotel => stars.includes(hotel.stars));
+    if (stars) filtered = filtered.filter((hotel: { stars: any; }) => stars.includes(hotel.stars));
     return filtered;
   }
 

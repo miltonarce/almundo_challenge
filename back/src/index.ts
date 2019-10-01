@@ -2,43 +2,37 @@ import express, { Application } from 'express';
 import compression from 'compression';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import 'module-alias/register';
 // import expressHealthCheck from 'express-healthcheck';
 import swaggerDocument from './swagger.json';
 import swaggerUi from 'swagger-ui-express';
-import cacheDNS from './shared/cache-dns';
+import cacheDNS from '@shared/cache-dns';
 
-import Routes from './routes/indexRoutes';
+import Routes from '@routes/indexRoutes';
 
-class Server {
-  public server: Application;
+const server = express();
 
-  constructor() {
-    this.server = express();
-    this.config();
-    this.routes();
-  }
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
 
-  config(): void {
-    cacheDNS();
-    this.server.set('port', process.env.port || 3001);
-    this.server.use(compression());
-    this.server.use(cors());
-    this.server.use(bodyParser.json());
-    this.server.use(bodyParser.urlencoded({ extended: true }));
-  }
+cacheDNS();
 
-  routes(): void {
-    this.server.use('/api', Routes);
-    // this.server.use('/api/healthcheck', expressHealthCheck());
-    this.server.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-  }
+server.use(compression());
+server.use(cors());
+// this.server.use('/api/healthcheck', expressHealthCheck());
+server.set('port', process.env.port || 3001);
+server.use('/api', Routes);
+server.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+server.listen(server.get('port'), () => {
+  console.log('Server running on port', server.get('port'));
+});
 
-  start(): void {
-    this.server.listen(this.server.get('port'), () => {
-      console.log('Server running on port', this.server.get('port'));
-    });
-  }
-}
 
-const server = new Server();
-server.start();
+
+
+
+
+
+
+
+

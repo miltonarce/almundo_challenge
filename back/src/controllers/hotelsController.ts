@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-import hotelService from '../services/hotelService';
+import hotelService from '@services/hotelService';
 
 class HotelsController {
   public getHotels(req: Request, res: Response, next: NextFunction) {
