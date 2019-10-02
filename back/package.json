@@ -4,7 +4,7 @@
   "description": "Backend para servicios almundo.",
   "scripts": {
     "watch": "nodemon build/index.js",
-    "build": "tsc -w",
+    "start": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "_moduleAliases": {

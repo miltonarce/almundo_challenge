@@ -44,7 +44,7 @@
             "type": "string"
           },
           {
-            "name": "stars",
+            "name": "stars[]",
             "in": "query",
             "description": "Estrellas del hotel",
             "required": false,
