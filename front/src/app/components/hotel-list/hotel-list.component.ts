@@ -8,11 +8,19 @@ import { HotelsService } from '../../services/hotels.service';
   styleUrls: ['./hotel-list.component.scss']
 })
 export class HotelListComponent implements OnInit {
+
   hotels: any = [];
   constructor(private hotelsService: HotelsService) { }
 
   ngOnInit() {
     this.hotelsService.getHotels().subscribe(
+      res => this.hotels = res,
+      err => console.error(err)
+    );
+  }
+
+  filtersHotels(mensaje: string) {
+    this.hotelsService.getHotels(mensaje).subscribe(
       res => this.hotels = res,
       err => console.error(err)
     );

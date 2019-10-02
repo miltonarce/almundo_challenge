@@ -9,7 +9,8 @@ export class HotelsService {
 
   constructor(private http: HttpClient) { }
 
-  getHotels() {
-    return this.http.get(`${this.API_URI}/hotels`);
+  getHotels(name: string = '') {
+    return this.http.get(`${this.API_URI}/hotels?name=${name}`);
   }
+
 }

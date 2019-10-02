@@ -3,12 +3,27 @@
 .container-main{
   @include make-almundo-container();
   &__row{
-    @include make-almundo-row();
+    @include make-almundo-row($gutter: false);
     &__filters{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 5rem;
+      @include media-breakpoint-up(lg) { 
       @include make-almundo-col(3);
+      top: 0;
+      }
     }
     &__cards{
-      @include make-almundo-col(9);
+      margin-top: 5rem;
+      @include make-almundo-row();
+      @include media-breakpoint-up(lg) {
+        margin-top: 0rem; 
+        @include make-almundo-col(9);
+        &-card-component{
+          width: 100%;
+        }
+      }
     }
   }
 }

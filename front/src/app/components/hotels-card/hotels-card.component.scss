@@ -3,35 +3,57 @@
 .content-card{
   background: $color-white;
   width: 100%;
-  height: 20rem;
   margin-bottom: 2rem;
   padding: .7rem;
   box-shadow: 2px 3px 3px -4px rgba(125, 125, 125, 0.8);
   &__row{
     @include make-almundo-row();
     &__image{
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-      @include make-almundo-col(3);
-      picture img{
-        width: 100%;
-        height: 18.6rem;
+        @include make-almundo-row();
+        picture img{
+          width: 100%;
+          height: 18.6rem;
+        }
+        @include media-breakpoint-up(lg) { 
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          @include make-almundo-col(3);
       }
     }
     &__data{
-      @include make-almundo-col(6);
+
+      @include make-almundo-row();
+      @include media-breakpoint-up(lg) { 
+        @include make-almundo-col(6);
+      }
       &__row{
+        width: 100%;
         @include make-almundo-row();
+        font-size: 2rem;
+        margin-top: 1rem;
         label{
           color: $color-lightest-link;
           font-weight: 500;
         }
+        &__stars{
+          mat-icon{
+            color: $color-stars;
+            width: 2rem;
+          }
+        }
+        &__amenities{
+          margin-bottom: 3rem;
+          margin-right: 2rem;
+        }
+        @include media-breakpoint-up(lg) {
+          margin: none;
+        }
       }
     }
     &__price{
-      @include make-almundo-col(3);
-      border-left: 2px solid $color-med-gray;
-      border-left-style: dashed;
+      border-top: 2px solid $color-med-gray;
+      border-top-style: dashed;
+      width: 100%;
       &__box{
         padding: 1rem;
         margin: 1rem auto;
@@ -40,6 +62,9 @@
           label, button{
             display: block;
             margin: .5rem auto;
+          }
+          button{
+            width: 100%;
           }
           &__desc{
             color: $color-dark-gray;
@@ -61,6 +86,19 @@
             color: $color-white;
             padding: .5rem 3.5rem;
             border-radius: .4rem;
+          }
+        }
+      }
+      @include media-breakpoint-up(lg) { 
+        @include make-almundo-col(3);
+        border-left: 2px solid $color-med-gray;
+        border-left-style: dashed;
+        border-top: none;
+        &__box{
+          &__row{
+            button{
+              width: auto;
+            }
           }
         }
       }

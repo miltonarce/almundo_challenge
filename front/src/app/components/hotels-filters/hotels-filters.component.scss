@@ -1,0 +1,94 @@
+@import "./../../../assets/scss/styles.scss";
+
+.container-filter{
+  width: 100%;
+  background: $color-white;
+  box-shadow: 2px 3px 3px -4px rgba(125, 125, 125, 0.8);
+  padding: 1rem 3rem;
+  @include media-breakpoint-up(lg) {
+    padding: 0;
+  }
+  &__row{
+    @include make-almundo-row();
+    button{
+      background: none;
+      border: none;
+      font-weight: 500;
+      color: $color-lightest-link;
+      display: block;
+      margin: 0px auto;
+      margin-bottom: 1rem;
+    }
+    .label-filter{
+      display: none;
+      font-weight: 500;
+      color: $color-dark-gray;
+    }
+    @include media-breakpoint-up(lg) { 
+    .label-filter{ display: inline}
+    border-bottom: 3px solid $color-light-gray;   
+    padding: 1.3rem;
+      label{
+        display: inline;
+      }
+      .filter-button{
+        display: none;
+        
+      }
+    }
+    &__title{
+      width: 100%;
+      margin-bottom: 1rem;
+      mat-icon{
+        color: $color-lightest-link;
+        width: 1.7rem;
+      }
+      label{
+        color: $color-lightest-link;
+        font-size: 1.5rem;
+        margin-left: 1rem;
+      }
+    }
+    &__actions{
+      width: 100%;
+      &__input-text{
+        @include float-left();
+        width: 60%;
+        input{
+          padding: .5rem;
+          font-size: 1.5rem;
+          width: 100%;
+          border: 2px solid $color-med-gray;
+          border-radius: .2rem;
+        }
+      }
+      &__button{
+        @include float-right();
+        button{
+          border: none;
+          background: $color-primary;
+          color: $color-white;
+          padding: .5rem .8rem;
+          border-radius: .2rem;
+        }
+      }
+      &__list{
+        li{
+          padding: .3rem;
+          input{
+            margin-right: 1rem;
+            vertical-align: middle;
+          }
+          label{
+            font-size: 1.4rem;
+          }
+          mat-icon{
+            color: $color-stars;
+            width: 1.3rem;
+            margin-right: .5rem;
+          }
+        }
+      }
+    }
+  }
+}

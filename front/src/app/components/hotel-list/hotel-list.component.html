@@ -1,14 +1,11 @@
-<!-- <div *ngFor="let hotel of hotels">
-  <div>Name {{hotel.name}}</div>
-</div> -->
 <div class="container-main">
   <div class="container-main__row">
     <div class="container-main__row__filters">
-      asda
+      <app-hotels-filters (filters)="filtersHotels($event)"></app-hotels-filters>
     </div>
     <div class="container-main__row__cards">
-      <app-hotels-card *ngFor="let hotel of hotels" [hotel]="hotel"></app-hotels-card>
-
+      <app-hotels-card *ngFor="let hotel of hotels" [hotel]="hotel" class="container-main__row__cards-card-component">
+      </app-hotels-card>
     </div>
   </div>
 </div>

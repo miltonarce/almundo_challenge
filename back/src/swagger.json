@@ -12,8 +12,8 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host": "virtserver.swaggerhub.com",
-  "basePath": "/miltonarce/almundo_api/1.0.0",
+  "host": "localhost:3001",
+  "basePath": "/api",
   "tags": [
     {
       "name": "Hotels",
@@ -21,7 +21,7 @@
     }
   ],
   "schemes": [
-    "https"
+    "http"
   ],
   "produces": [
     "applitaction/json"
@@ -37,11 +37,21 @@
         "operationId": "get",
         "parameters": [
           {
-            "name": "filters",
+            "name": "name",
             "in": "query",
-            "description": "Filters hotels",
+            "description": "Nombre del hotel",
             "required": false,
-            "type": "object"
+            "type": "string"
+          },
+          {
+            "name": "stars",
+            "in": "query",
+            "description": "Estrellas del hotel",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "responses": {

@@ -8,7 +8,7 @@ export default class HotelService {
     const stars = filters.stars ? filters.stars.map(star => parseInt(star)) : null;
     let filtered = hotels;
 
-    if (filters.name) filtered = filtered.filter(hotel => hotel.name.includes(filters.name));
+    if (filters.name) filtered = filtered.filter(hotel => hotel.name.toLowerCase().includes(filters.name.toLowerCase()));
     if (stars) filtered = filtered.filter((hotel: { stars: any; }) => stars.includes(hotel.stars));
     return filtered;
   }

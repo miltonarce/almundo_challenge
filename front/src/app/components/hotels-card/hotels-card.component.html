@@ -10,10 +10,13 @@
         <label>{{hotel.name}}</label>
       </div>
       <div class="content-card__row__data__row">
-        <div>{{hotel.amenities}}</div>
+        <div *ngFor="let star of stars" class="content-card__row__data__row__stars">
+          <mat-icon svgIcon="star"></mat-icon>
+        </div>
       </div>
       <div class="content-card__row__data__row">
-
+        <mat-icon *ngFor="let amenity of amenities" svgIcon="{{amenity}}"
+          class="content-card__row__data__row__amenities"></mat-icon>
       </div>
     </div>
     <div class="content-card__row__price">

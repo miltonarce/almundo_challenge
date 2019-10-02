@@ -1,1 +1,60 @@
-<p>hotels-filters works!</p>
+<div class="container-filter">
+  <div class="container-filter__row">
+    <label class="label-filter" (click)="openFilters()">Filtros</label>
+    <button type="button" (click)="openFilters()" class="filter-button">Filtros</button>
+  </div>
+  <form (ngSubmit)="filterHotels()" *ngIf="isCollapsed">
+    <div class="container-filter__row">
+      <div class="container-filter__row__title">
+        <mat-icon svgIcon="search"></mat-icon><label>Nombre de hotel</label>
+        <mat-icon class="float-right" svgIcon="arrowup"></mat-icon>
+      </div>
+      <div class="container-filter__row__actions">
+        <div class="container-filter__row__actions__input-text">
+          <input type="text" name="name" [(ngModel)]="hotel.name" placeholder="Ingrese el nombre del hotel" />
+        </div>
+        <div class="container-filter__row__actions__button">
+          <button type="submit">Aceptar</button>
+        </div>
+      </div>
+    </div>
+    <div class="container-filter__row">
+      <div class="container-filter__row__title">
+        <mat-icon svgIcon="star"></mat-icon><label>Estrellas</label>
+        <mat-icon class="float-right" svgIcon="arrowup"></mat-icon>
+      </div>
+      <div class="container-filter__row__actions">
+        <ul class="container-filter__row__actions__list">
+          <li><input type="checkbox" />
+            <label>Todas las estrellas</label>
+          </li>
+          <li><input type="checkbox" />
+            <mat-icon svgIcon="star"></mat-icon>
+            <mat-icon svgIcon="star"></mat-icon>
+            <mat-icon svgIcon="star"></mat-icon>
+            <mat-icon svgIcon="star"></mat-icon>
+            <mat-icon svgIcon="star"></mat-icon>
+          </li>
+          <li><input type="checkbox" />
+            <mat-icon svgIcon="star"></mat-icon>
+            <mat-icon svgIcon="star"></mat-icon>
+            <mat-icon svgIcon="star"></mat-icon>
+            <mat-icon svgIcon="star"></mat-icon>
+          </li>
+          <li><input type="checkbox" />
+            <mat-icon svgIcon="star"></mat-icon>
+            <mat-icon svgIcon="star"></mat-icon>
+            <mat-icon svgIcon="star"></mat-icon>
+          </li>
+          <li><input type="checkbox" />
+            <mat-icon svgIcon="star"></mat-icon>
+            <mat-icon svgIcon="star"></mat-icon>
+          </li>
+          <li><input type="checkbox" />
+            <mat-icon svgIcon="star"></mat-icon>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </form>
+</div>
