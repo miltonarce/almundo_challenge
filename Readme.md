@@ -7,7 +7,8 @@ App en angular 8
 
 - Para correr la aplicación de frontend Angular se debe correr el comando ng serve sobre front pra levantar el server y/o ng build para hacer el build de la app.
 
-El frontend estara levantado en http://localhost:4200/
+## El frontend estara levantado en 
+- http://localhost:4200/
 
 # Backend
 - Hacer un npm install sobre la carpeta back
@@ -16,9 +17,11 @@ El frontend estara levantado en http://localhost:4200/
 
 - Para acceder a Swagger acceder por /api/api-docs
 
-El backend estara levantado en 
-URL - Base: http://localhost:3001/api/
-URL - Status: http://localhost:3001/api/api-status
-URL - Swagger doc: http://localhost:3001/api/api-docs 
-URL - Get all hotels: http://localhost:3001/api/hotels
-URL - Ejemplo get con filtros: http://localhost:3001/api/hotels?name=Hotel&stars[]=2
+## El backend estara levantado en 
+|Descripción| URL|
+|-----------|----|
+|URL - Base:                   | http://localhost:3001/api/|
+|URL - Status:                  | http://localhost:3001/api/api-status|
+|URL - Swagger doc:             | http://localhost:3001/api/api-docs |
+|URL - Get all hotels:          | http://localhost:3001/api/hotels|
+|URL - Ejemplo get con filtros: | http://localhost:3001/api/hotels?name=Hotel&stars[]=2|
