@@ -1,0 +1,1 @@
+export { Hotel } from './hotel/hotel.interface';

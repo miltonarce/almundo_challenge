@@ -1,5 +1,5 @@
 import hotels from '@store/data.json';
-import { Filters } from '@shared/interfaces/hotel';
+import { Filters } from '@shared/interfaces';
 
 export default class HotelService {
 

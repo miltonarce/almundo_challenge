@@ -1,1 +1,16 @@
-@import '../../../styles.scss'
+@import "./../../../assets/scss/styles.scss";
+
+.header{
+  &__container{
+    max-height: 6rem;
+    @include make-container-max-widths();
+    &__row{
+      @include make-almundo-row();
+      &__nav{
+        &__image-container{
+          padding: .5rem;
+        }
+      }
+    }
+  }
+}

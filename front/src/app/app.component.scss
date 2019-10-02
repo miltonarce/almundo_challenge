@@ -1,5 +1,14 @@
-@import '../styles.scss';
+@import "./../assets/scss/styles.scss";
 
 .container-almundo{
-  
+  width: 100%;
+  &__header{
+    background: $color-primary;
+    width: 100%;
+  }
+  &__main{
+    background: $color-light-gray;
+    width: 100%;
+    padding: 2rem;
+  }
 }

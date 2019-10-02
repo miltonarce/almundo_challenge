@@ -1,0 +1,69 @@
+@import "./../../../assets/scss/styles.scss";
+
+.content-card{
+  background: $color-white;
+  width: 100%;
+  height: 20rem;
+  margin-bottom: 2rem;
+  padding: .7rem;
+  box-shadow: 2px 3px 3px -4px rgba(125, 125, 125, 0.8);
+  &__row{
+    @include make-almundo-row();
+    &__image{
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      @include make-almundo-col(3);
+      picture img{
+        width: 100%;
+        height: 18.6rem;
+      }
+    }
+    &__data{
+      @include make-almundo-col(6);
+      &__row{
+        @include make-almundo-row();
+        label{
+          color: $color-lightest-link;
+          font-weight: 500;
+        }
+      }
+    }
+    &__price{
+      @include make-almundo-col(3);
+      border-left: 2px solid $color-med-gray;
+      border-left-style: dashed;
+      &__box{
+        padding: 1rem;
+        margin: 1rem auto;
+        &__row{
+          @include make-almundo-row();
+          label, button{
+            display: block;
+            margin: .5rem auto;
+          }
+          &__desc{
+            color: $color-dark-gray;
+            text-align: center;
+            font-size: $h6-font-size;
+            width: 70%;
+          }
+          &__val{
+            color: $color-secondary;
+            text-align: left;
+            font-size: 2.6rem;
+            strong{
+              font-size: 3rem;
+            }
+          }
+          &__button{
+            border: none;
+            background: $color-primary;
+            color: $color-white;
+            padding: .5rem 3.5rem;
+            border-radius: .4rem;
+          }
+        }
+      }
+    }
+  }
+}

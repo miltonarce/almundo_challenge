@@ -1,0 +1,14 @@
+@import "./../../../assets/scss/styles.scss";
+
+.container-main{
+  @include make-almundo-container();
+  &__row{
+    @include make-almundo-row();
+    &__filters{
+      @include make-almundo-col(3);
+    }
+    &__cards{
+      @include make-almundo-col(9);
+    }
+  }
+}

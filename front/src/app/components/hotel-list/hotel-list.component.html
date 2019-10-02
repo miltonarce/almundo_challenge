@@ -1,1 +1,14 @@
-<p>hotel-list works!</p>
+<!-- <div *ngFor="let hotel of hotels">
+  <div>Name {{hotel.name}}</div>
+</div> -->
+<div class="container-main">
+  <div class="container-main__row">
+    <div class="container-main__row__filters">
+      asda
+    </div>
+    <div class="container-main__row__cards">
+      <app-hotels-card *ngFor="let hotel of hotels" [hotel]="hotel"></app-hotels-card>
+
+    </div>
+  </div>
+</div>

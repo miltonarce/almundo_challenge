@@ -1,6 +1,9 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
 @mixin make-almundo-container() {
   @include make-container();
-  @include make-container-max-widths();
 }
 
 @mixin make-almundo-container-max-widths() {

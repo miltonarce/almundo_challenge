@@ -1,0 +1,37 @@
+<div class="content-card">
+  <div class="content-card__row">
+    <div class="content-card__row__image">
+      <picture>
+        <img [src]="'../../../assets/images/hotels/' + hotel.image" alt="Imagen de {{hotel.name}}">
+      </picture>
+    </div>
+    <div class="content-card__row__data">
+      <div class="content-card__row__data__row">
+        <label>{{hotel.name}}</label>
+      </div>
+      <div class="content-card__row__data__row">
+        <div>{{hotel.amenities}}</div>
+      </div>
+      <div class="content-card__row__data__row">
+
+      </div>
+    </div>
+    <div class="content-card__row__price">
+      <div class="content-card__row__price__box">
+        <div class="content-card__row__price__box__row">
+          <label class="content-card__row__price__box__row__desc">
+            Precio por noche por habitación
+          </label>
+        </div>
+        <div class="content-card__row__price__box__row">
+          <label class="content-card__row__price__box__row__val">
+            ARS <strong>{{hotel.price}}</strong>
+          </label>
+        </div>
+        <div class="content-card__row__price__box__row">
+          <button class="content-card__row__price__box__row__button" type="button">Ver hotel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
